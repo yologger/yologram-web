@@ -1,0 +1,14 @@
+{
+    "include": ["src"],
+    "compilerOptions": {
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "allowJs": true,
+        "target": "ES6",
+        "jsx": "react-jsx",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "baseUrl": "src",
+        "paths": {"~/*": ["*"]}
+    }
+}
