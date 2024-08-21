@@ -1,6 +1,6 @@
 const App = () => {
     return <>
-        <h1>This is App.tsx</h1>
+        <h1>web.yologram.link</h1>
     </>
 }
 

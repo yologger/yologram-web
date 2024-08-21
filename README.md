@@ -2,5 +2,5 @@
 Monolithic Web for yologram
 
 ## Environment
-- Node.js 16.20
+- Node.js 18.18.2
 - React 16
