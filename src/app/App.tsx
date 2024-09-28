@@ -1,6 +1,24 @@
+import Layout from "~/components/templates/Layout";
+import { Switch, Route } from 'react-router-dom';
+
+import HomePage from '~/components/pages/HomePage';
+import NotFoundPage from '~/components/pages/NotFoundPage';
+import AccountPage from '~/components/pages/AccountPage';
+import JoinPage from '~/components/pages/JoinPage';
+import TestPage from '~/components/pages/TestPage';
+
+
 const App = () => {
     return <>
-        <h1>web.yologram.link</h1>
+        <Layout>
+            <Switch>
+                <Route exact path="/" component={HomePage} />
+                <Route exact path="/join" component={JoinPage} />
+                <Route exact path="/account" component={AccountPage} />
+                <Route exact path="/test" component={TestPage} />
+                <Route component={NotFoundPage} />
+            </Switch>
+        </Layout>
     </>
 }
 
