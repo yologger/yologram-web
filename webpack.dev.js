@@ -75,7 +75,7 @@ module.exports = {
                   {
                     type: 'asset',
                     generator: {
-                      filename: 'pc-static/resource/[hash][ext][query]',
+                      filename: 'static/resource/[hash][ext][query]',
                     },
                   },
                 ],
