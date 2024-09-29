@@ -4,11 +4,12 @@ import Header from '~/components/organisms/Header';
 
 interface ILayoutProps {
     children: ReactNode;
+    useLayout: boolean;
 }
 
-const Layout = ({ children }: ILayoutProps) => {
+const Layout = ({ useLayout, children }: ILayoutProps) => {
     return <Wrapper>
-        <Header />
+        {useLayout && <Header />}
         {children}
     </Wrapper>
 }

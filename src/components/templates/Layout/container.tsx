@@ -13,7 +13,7 @@ const Container = ({ children }: IContainerProps) => {
     const location = useLocation();
     const useLayout = !excludePaths.find((path) => location.pathname.startsWith(path));
 
-    return <Layout children={children}/>
+    return <Layout useLayout={useLayout} children={children}/>
 }
 
 export default Container
