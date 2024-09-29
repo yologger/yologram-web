@@ -8,6 +8,7 @@ import ChangePasswordPage from '~/components/pages/AccountPage/ChangePasswordPag
 import JoinPage from '~/components/pages/JoinPage';
 import TestPage from '~/components/pages/TestPage';
 import BoardNewPage from '~/components/pages/BoardNewPage';
+import BoardDetailPage from '~/components/pages/BoardDetailPage';
 
 const App = () => {
     return <>
@@ -19,6 +20,7 @@ const App = () => {
                 <Route exact path="/change-password" component={ChangePasswordPage} />
                 <Route exact path="/board/new" component={BoardNewPage} />
                 <Route exact path="/test" component={TestPage} />
+                <Route exact path="/board/:bid(\d+)" component={BoardDetailPage} />
                 <Route component={NotFoundPage} />
             </Switch>
         </Layout>
