@@ -2,6 +2,7 @@ import PageTitle from '~/components/atom/text/PageTitle';
 import * as S from './AccountPage.style';
 import SectionTitle from '~/components/atom/text/SectionTitle';
 import BoardList from '~/components/organisms/Board/BoardList';
+import { useHistory } from 'react-router-dom'
 
 const AccountPage = () => {
 
@@ -14,7 +15,8 @@ const AccountPage = () => {
   const nickname = "yologger"
   const onNicknameChanged = () => {}
 
-  const onChangePassword = () => {}
+  const history = useHistory();
+  const onChangePassword = () => history.push(`/change-password`)
   
   return <S.Layout>
     <S.Page>

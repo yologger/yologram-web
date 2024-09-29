@@ -15,50 +15,6 @@ export const Page = styled.div`
   width: ${({ theme }) => theme.bodyWidth};   
 `
 
-export const Section = styled.section`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  justify-content: center;
-  padding: ${(props) => props.theme.padding.base};
-  border: 1px solid ${(props) => props.theme.color.shadow};
-  border-radius: 5px;
-`
-
-export const ProfileSectioInputs = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-`
-
-export const ProfileSectionButtons = styled.div`
-    margin-top: 20px;
-    display: flex;
-    direction: row;
-    justify-content: space-between;
-`
-
-interface IProfileInputProps {
-  label: string;
-  type: string;
-  value: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-}
-
-export const ProfileInput = ({ label, type, value, onChange }: IProfileInputProps) => {
-  return <>
-    <Label>{label}</Label>
-    <Input
-      type={type}
-      value={value}
-      onChange={onChange}
-      error={true}
-      onBlur={null}
-      ref={null} />
-  </>
-}
-
 const Input = styled.input<{ error: boolean }>`
   width: 100%;
   padding: 16px;
@@ -102,19 +58,54 @@ const Label = styled.div<{ center?: boolean; pad?: number }>`
     margin-left: 0.25rem;
   }
   ${({ center }) =>
-      center &&
-      `
+        center &&
+        `
     display: flex;
     align-items: center;
   `};
   ${({ pad }) =>
-      pad &&
-      `
+        pad &&
+        `
     padding-top: ${pad}px;
   `};
 `;
 
-export const ChangePasswordButton = styled.button`
+export const Inputs = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`
+
+interface IChangePasswordInputProps {
+    label: string;
+    type: string;
+    value: string;
+    placeholder: string;
+    onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+}
+
+export const ChangePasswordInput = ({ label, type, value, placeholder, onChange }: IChangePasswordInputProps) => {
+    return <>
+        <Label>{label}</Label>
+        <Input
+            type={type}
+            value={value}
+            placeholder={placeholder}
+            onChange={onChange}
+            error={true}
+            onBlur={null}
+            ref={null} />
+    </>
+}
+
+export const Buttons = styled.div`
+    margin-top: 20px;
+    display: flex;
+    direction: row;
+    justify-content: space-between;
+`
+
+export const CancelButton = styled.button`
       height: 3.5rem;
       width: 10rem;  
       font-size: 0.875rem;
@@ -124,7 +115,7 @@ export const ChangePasswordButton = styled.button`
       align-items: center;
       justify-content: center;
       color: ${theme.color.white};
-      background: ${theme.color.red};
+      background: ${theme.color.lightGrey};
       border-radius: 0.375rem;
   `
 
