@@ -3,7 +3,7 @@ import { RootActions } from '../index';
 
 export const initialState: ICommonState = {
   popupCount: 0,
-  isLoginPopupOpened: false
+  isShownLoginPopup: false
 };
 
 export default (state: ICommonState = initialState, action: RootActions): ICommonState => {
@@ -11,7 +11,7 @@ export default (state: ICommonState = initialState, action: RootActions): ICommo
     case ActionTypes.SET_LOGIN_POPUP:
       return {
         ...state,
-        isLoginPopupOpened: action.payload.isLoginPopupOpen
+        isShownLoginPopup: action.payload.isLoginPopupOpen
       };
     case ActionTypes.ADD_POPUP_COUNT:
       return {

@@ -1,6 +1,6 @@
 export interface ICommonState {
   popupCount: number;
-  isLoginPopupOpened: boolean;
+  isShownLoginPopup: boolean;
 }
 
 enum ActionTypes {

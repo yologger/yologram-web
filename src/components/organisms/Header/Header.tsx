@@ -1,9 +1,16 @@
 import { Link } from "react-router-dom"
 import * as S from './Header.style';
 
-const Header = () => {
+interface IHeaderProps {
+    isLoggedIn: boolean
+    openLoginPopup: () => void
+}
 
-    const isLoggedIn = true
+const Header = ({
+    isLoggedIn,
+    openLoginPopup
+}: IHeaderProps) => {
+    
     const openLogoutAlert = () => {}
 
     return <>
@@ -26,7 +33,7 @@ const Header = () => {
                     </S.HeaderMenuGroup>
                 ) : (
                     <S.HeaderMenuGroup>
-                        <S.HeaderMenuLink to="/login">Login</S.HeaderMenuLink>
+                        <S.HeaderMenuButton onClick={openLoginPopup}>Login</S.HeaderMenuButton>
                         <S.HeaderMenuLink to="/join">Join</S.HeaderMenuLink>
                     </S.HeaderMenuGroup>
                 )}

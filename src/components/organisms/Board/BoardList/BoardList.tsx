@@ -73,7 +73,7 @@ const BoardList = ({}) => {
       pageStart={0}
       loadMore={onLoadMore}
       hasMore={hasMore}
-      loader={<LoadingItem />}
+      loader={<LoadingItem key={0} />}
     >
       {boards.map((board, index) =>
         <BoardItem key={board.id} index={index} board={board} onItemClicked={onItemClicked} />
