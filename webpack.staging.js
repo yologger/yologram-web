@@ -49,8 +49,37 @@ module.exports = {
             },
             {
                 test: /\.svg$/,
-                use: ['@svgr/webpack'],
-            }
+                oneOf: [
+                  {
+                    dependency: { not: ['url'] },
+                    use: [
+                      {
+                        loader: '@svgr/webpack',
+                        options: {
+                          prettier: false,
+                          svgo: true,
+                          titleProp: true,
+                          svgoConfig: {
+                            plugins: [
+                              {
+                                name: 'removeViewBox',
+                                active: false,
+                              },
+                            ],
+                          },
+                        },
+                      },
+                      'new-url-loader',
+                    ],
+                  },
+                  {
+                    type: 'asset',
+                    generator: {
+                      filename: 'static/resource/[hash][ext][query]',
+                    },
+                  },
+                ],
+              },
         ],
     },
     plugins: [
