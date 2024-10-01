@@ -8,7 +8,7 @@ interface IPageProps {
   openAlert: () => void
   onAlertConfirm: () => void
   onAlertCancel: () => void
-  // openToast: () => void
+  openToast: () => void
   // isShownDialog: boolean
   // openDialog: () => void
   // closeDialog: () => void
@@ -21,10 +21,10 @@ const TestPage = ({
   isShownAlert,
   openAlert,
   onAlertConfirm,
-  onAlertCancel
+  onAlertCancel,
+  openToast
 }: IPageProps) => {
 
-  const openToast = () => {}
   const openDialog = () => {}
   const openPopup = () => {}
 

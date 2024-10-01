@@ -10,6 +10,7 @@ import TestPage from '~/components/pages/TestPage';
 import BoardNewPage from '~/components/pages/BoardNewPage';
 import BoardDetailPage from '~/components/pages/BoardDetailPage';
 import BoardEditPage from "~/components/pages/BoardEditPage";
+import Toast from "~/components/templates/Toast";
 
 const App = () => {
     return <>
@@ -26,6 +27,7 @@ const App = () => {
                 <Route component={NotFoundPage} />
             </Switch>
         </Layout>
+        <Toast />
     </>
 }
 
