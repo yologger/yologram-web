@@ -1,10 +1,10 @@
 import styled, { theme } from '~/styledComponents';
 
-import { ReactComponent as ViewIcon } from '~/static/icons/bolt.svg'
-import { ReactComponent as SubscribeIcon } from '~/static/icons/subscribe.svg'
-import { ReactComponent as LikeIcon } from '~/static/icons/like.svg'
-import { ReactComponent as CommentIcon } from '~/static/icons/comment.svg'
-import DefaultProfileAvatar from '~/static/icons/default_profile_avatar.svg'
+import { ReactComponent as ViewIcon } from '~/static/icons/icon_bolt.svg'
+import { ReactComponent as SubscribeIcon } from '~/static/icons/icon_subscribe.svg'
+import { ReactComponent as LikeIcon } from '~/static/icons/icon_like.svg'
+import { ReactComponent as CommentIcon } from '~/static/icons/icon_comment.svg'
+import DefaultProfileAvatar from '~/static/icons/icon_default_profile_avatar.svg'
 import { IBoard } from '~/types';
 
 interface IProps {

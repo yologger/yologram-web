@@ -1,13 +1,13 @@
 import PageTitle from '~/components/atom/text/PageTitle';
 import * as S from './BoardDetailPage.style';
 import { IBoard } from '~/types';
-import DefaultProfileAvatar from '~/static/icons/default_profile_avatar.svg'
-import { ReactComponent as ViewIcon } from '~/static/icons/bolt.svg'
-import { ReactComponent as SubscribeIcon } from '~/static/icons/subscribe.svg'
+import DefaultProfileAvatar from '~/static/icons/icon_default_profile_avatar.svg'
+import { ReactComponent as ViewIcon } from '~/static/icons/icon_bolt.svg'
+import { ReactComponent as SubscribeIcon } from '~/static/icons/icon_subscribe.svg'
 import { ReactComponent as LikeIcon } from '~/static/icons/like.svg'
 import { ReactComponent as CommentIcon } from '~/static/icons/comment.svg'
-import editIcon from '~/static/icons/edit.svg'
-import deleteIcon from '~/static/icons/delete.svg'
+import editIcon from '~/static/icons/icon_edit.svg'
+import deleteIcon from '~/static/icons/icon_delete.svg'
 
 interface IPageProps {
     board: IBoard

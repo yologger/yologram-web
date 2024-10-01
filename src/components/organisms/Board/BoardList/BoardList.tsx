@@ -4,7 +4,7 @@ import styled from "styled-components"
 import InfiniteScroll from "react-infinite-scroller";
 import { useState } from "react";
 import { useHistory } from 'react-router-dom'
-import LoadingIcon from '~/static/icons/loading.gif'
+import LoadingIcon from '~/static/icons/icon_loading.gif'
 import { IBoard } from "~/types";
 
 interface IProps {
