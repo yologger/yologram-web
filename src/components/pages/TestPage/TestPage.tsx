@@ -4,6 +4,7 @@ import Alert from '~/components/templates/Alert';
 import Fade from '~/components/templates/Fade';
 import Dialog from '~/components/molecules/Dialog';
 import { IDialog } from '~/types';
+import TestPopup from '~/components/organisms/Popup/TestPopup';
 
 interface IPageProps {
   isShownAlert: boolean
@@ -14,9 +15,9 @@ interface IPageProps {
   isShownDialog: boolean
   openDialog: () => void
   closeDialog: () => void
-  // isShownPopup: boolean
-  // openPopup: () => void
-  // closePopup: () => void
+  isShownPopup: boolean
+  openPopup: () => void
+  closePopup: () => void
 }
 
 const TestPage = ({
@@ -27,7 +28,10 @@ const TestPage = ({
   openToast,
   isShownDialog,
   openDialog,
-  closeDialog
+  closeDialog,
+  isShownPopup,
+  openPopup,
+  closePopup
 }: IPageProps) => {
 
   const dialogs: IDialog[] = [
@@ -36,8 +40,6 @@ const TestPage = ({
     { label: 'label3', actionType: 'anchor', callback: null },
     { label: 'label4', actionType: 'imageButton', callback: null }
   ]
-
-  const openPopup = () => {}
 
   return <S.Layout>
     <S.Page>
@@ -53,6 +55,7 @@ const TestPage = ({
           </Fade>
         </Modal>
         <Dialog show={isShownDialog} title={'this is title'} text={'this is text'} close={closeDialog} dialogs={dialogs} />
+        <TestPopup showPopup={isShownPopup} onClose={closePopup}/>
     </S.Page>
   </S.Layout>
 }
