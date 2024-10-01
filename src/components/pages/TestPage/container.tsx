@@ -17,12 +17,19 @@ const Container = ({ success }: IContainerProps) => {
         success(toastMsg) 
     }
 
+    const [isShownDialog, setIsShownDialog] = useState(false)
+    const openDialog = () => setIsShownDialog(true)
+    const closeDialog = () => setIsShownDialog(false)
+
     return <TestPage 
         isShownAlert={isShownAlert}
         openAlert={openAlert}
         onAlertConfirm={onAlertConfirm}
         onAlertCancel={onAlertCancel}
         openToast={openToast}
+        isShownDialog={isShownDialog}
+        openDialog={openDialog}
+        closeDialog={closeDialog}
     />
 }
 
