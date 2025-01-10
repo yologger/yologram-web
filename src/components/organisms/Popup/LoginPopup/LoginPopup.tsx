@@ -3,20 +3,37 @@ import styled, { theme } from '~/styledComponents';
 
 import Popup from '~/components/molecules/Popup';
 import PageTitle from '~/components/atom/text/PageTitle';
+import {ILoginPayload} from "~/types/auth";
+import {ChangeEvent, useState} from "react";
 
 interface IProps {
+  login(payload: ILoginPayload): Promise<void>
   onClose: () => void
-  onLogin: () => void
   isLoginPopupOpened: boolean
 }
 
-const LoginPopup = ({ onClose, onLogin, isLoginPopupOpened }: IProps) => {
+const LoginPopup = ({ onClose, login, isLoginPopupOpened }: IProps) => {
+
+  const [email, setEmail] = useState("yologger1@gmail.com")
+  const onEmailChange = (e) => { setEmail(e.target.value) }
+
+  const [password, setPassword] = useState("Yologger1234!@")
+  const onPasswordChange = (e) => { setPassword(e.target.value) }
+
+  const onLogin = (e) => {
+    e.preventDefault()
+    const payload: ILoginPayload = {
+      email: email,
+      password: password
+    }
+    login(payload)
+  }
 
   const children = <S.Layout>
     <Groups>
       <PageTitle title="로그인" />
-      <Group><EmailInput /></Group>
-      <Group><PasswordInput /></Group>
+      <Group><LoginInput label="이메일" type="email" placeholder="이메일을 입력해주세요." value={email} onChange={onEmailChange}/></Group>
+      <Group><LoginInput label="비밀번호" type="password" placeholder="비밀번호를 입력해주세요." value={password} onChange={onPasswordChange}/></Group>
       <ButtonGroup>
         <CancelButton type="button" onClick={onClose}>취소</CancelButton>
         <LoginButton type="button" onClick={onLogin}>로그인</LoginButton>
@@ -27,31 +44,25 @@ const LoginPopup = ({ onClose, onLogin, isLoginPopupOpened }: IProps) => {
   return <Popup children={children} showPopup={isLoginPopupOpened} />
 }
 
-const EmailInput = () => {
-  return <>
-    <Label>이메일</Label>
-    <Input
-      type="email"
-      placeholder="이메일을 입력해주세요"
-      value={null}
-      onChange={null}
-      error={true}
-      onBlur={null}
-      ref={null} />
-  </>
+interface ILoginInputProps {
+    label: string;
+    type: string;
+    placeholder: string;
+    value: string;
+    onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const PasswordInput = () => {
+export const LoginInput = ({ label, type, placeholder, value, onChange }: ILoginInputProps) => {
   return <>
-    <Label>비밀번호</Label>
+    <Label>{label}</Label>
     <Input
-      type="password"
-      placeholder="비밀번호를 입력해주세요"
-      value={null}
-      onChange={null}
-      error={true}
-      onBlur={null}
-      ref={null} />
+        type={type}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        error={false}
+        onBlur={null}
+        ref={null} />
   </>
 }
 

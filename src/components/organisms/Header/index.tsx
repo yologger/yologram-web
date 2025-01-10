@@ -1,9 +1,12 @@
 import { connect } from 'react-redux'
 import Container from './container'
-import { IRootState } from '~/store'
-import { Dispatch } from 'redux'
+import { IRootState, RootActions } from '~/store'
+import {ThunkDispatch} from "redux-thunk";
 import { setLoginPopup } from '~/store/common'
-import { getUserInfo, login, logout } from '~/store/auth'
+import { ILogoutResult } from '~/types/auth';
+import { IFailAction } from '~/store/error/types';
+import { logout } from '~/store/auth';
+import { ILogoutAction } from '~/store/auth/types';
 
 const mapStateToProps = (state: IRootState) => ({
   isLoggedIn: state.auth.isLoggedIn,
@@ -12,12 +15,15 @@ const mapStateToProps = (state: IRootState) => ({
   isShownLoginPopup: state.common.isShownLoginPopup
 })
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
+const mapDispatchToProps = (dispatch: ThunkDispatch<IRootState, null, RootActions>) => ({
   // login: () => dispatch(login("dummy@gmail.com", "1234")),
   // logout: () => dispatch(logout()),
   // getUserInfo: () => dispatch(getUserInfo())
-  setLoginPopup: (isLoginPopupOpened: boolean) => {
-    dispatch(setLoginPopup(isLoginPopupOpened))
+  setLoginPopup: (isLoginPopupShown: boolean) => {
+    dispatch(setLoginPopup(isLoginPopupShown))
+  },
+  onLogout: (): Promise<ILogoutAction|IFailAction> => {
+    return dispatch(logout())
   }
 })
 

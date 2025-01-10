@@ -1,10 +1,10 @@
 import JoinPage from "./JoinPage"
-import {IJoinData, IJoinResult} from "~/types";
+import {IJoinPayload, IJoinResult} from "~/types";
 import {useState} from "react";
 import {useHistory} from "react-router-dom";
 
 interface IContainerProps {
-    onJoin: (data: IJoinData) => Promise<IJoinResult>;
+    onJoin: (data: IJoinPayload) => Promise<IJoinResult>;
 }
 
 const Container = ({ onJoin }: IContainerProps) => {
@@ -13,19 +13,20 @@ const Container = ({ onJoin }: IContainerProps) => {
     const [alertErrorMessage, setAlertErrorMessage] = useState("")
     const history = useHistory();
 
-    const join = async (data: IJoinData) => {
-        const result = await onJoin(data)
+    const join = async (payload: IJoinPayload) => {
+        const result = await onJoin(payload)
         if (result.errorCode) {
             // 회원가입 실패
             setAlertErrorMessage(result.errorMessage)
             setIsAlertShown(true)
         } else {
             // 회원가입 성공
-            // console.log(result)
-            // console.log(result.data.uid)
-            // console.log(result.data.uid)
             history.replace("/")
         }
+    }
+
+    const onCancel = () => {
+        history.goBack()
     }
 
     const onConfirmAlert = () => {
@@ -38,6 +39,7 @@ const Container = ({ onJoin }: IContainerProps) => {
         isAlertShown={isAlertShown}
         alertErrorMessage={alertErrorMessage}
         onConfirmAlert={onConfirmAlert}
+        onCancel={onCancel}
     />
 }
 

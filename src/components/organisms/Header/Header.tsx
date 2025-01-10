@@ -1,17 +1,26 @@
 import { Link } from "react-router-dom"
 import * as S from './Header.style';
+import Modal from "~/components/templates/Modal";
+import Fade from "~/components/templates/Fade";
+import Alert from "~/components/templates/Alert";
 
 interface IHeaderProps {
     isLoggedIn: boolean
     openLoginPopup: () => void
+    openLogoutAlert: () => void
+    isLogoutAlertShown: boolean
+    onLogoutConfirm: () => void
+    onLogoutCancel: () => void
 }
 
 const Header = ({
     isLoggedIn,
-    openLoginPopup
+    openLoginPopup,
+    openLogoutAlert,
+    isLogoutAlertShown,
+    onLogoutConfirm,
+    onLogoutCancel
 }: IHeaderProps) => {
-    
-    const openLogoutAlert = () => {}
 
     return <>
         <S.HeaderTop>
@@ -39,6 +48,11 @@ const Header = ({
                 )}
             </S.HeaderBottomContent>
         </S.HeaderBottom>
+        <Modal>
+          <Fade in={isLogoutAlertShown} timeout={150}>
+            <Alert title="로그아웃" description={<p>로그아웃 하시겠어요?</p>} isShownClose={true} isShownCancelButton={true} confirmButtonMsg='네' cancelButtonMessage='아니요' onConfirm={onLogoutConfirm} onCancel={onLogoutCancel} />
+          </Fade>
+        </Modal>
     </>
 }
 

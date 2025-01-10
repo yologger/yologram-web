@@ -15,10 +15,15 @@ export interface IAuthState {
 
 export interface ILoginAction {
   readonly type: ActionTypes.LOGIN
+  readonly payload: {
+    accessToken: string,
+    isLoggedIn: boolean
+  }
 }
 
 export interface IValidateAccessTokenAction {
   readonly type: ActionTypes.VALIDATE_ACCESS_TOKEN
+  readonly accessToken: string
 }
 
 export interface ILogoutAction {

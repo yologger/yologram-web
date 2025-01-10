@@ -3,7 +3,7 @@ import ActionTypes, { IAuthState } from "./types";
 
 export const initialState: IAuthState = {
     isLoggedIn: false,
-    accessToken: "dummy_access_token",
+    accessToken: null,
     userInfo: {
         email: "test@test.com",
         name: "test_name",
@@ -14,11 +14,23 @@ export const initialState: IAuthState = {
 export default (state: IAuthState = initialState, action: RootActions): IAuthState => {
     switch (action.type) {
         case ActionTypes.LOGIN:
-            return state;
+            return {
+                ...state,
+                isLoggedIn: true,
+                accessToken: action.payload.accessToken
+            }
         case ActionTypes.VALIDATE_ACCESS_TOKEN:
-            return state;    
+            return {
+                ...state,
+                isLoggedIn: true,
+                accessToken: action.accessToken
+            }
         case ActionTypes.LOGOUT:
-            return state;
+            return {
+                ...state,
+                isLoggedIn: false,
+                accessToken: null
+            }
         case ActionTypes.GET_USER_INFO:
             return state;            
         default:

@@ -5,6 +5,9 @@ import GlobalStyles from './globalStyles';
 import { theme, ThemeProvider } from '~/styledComponents';
 import { Provider } from 'react-redux';
 import store from './store';
+import {validateAccessToken} from "~/store/auth";
+
+store.dispatch(validateAccessToken())
 
 ReactDOM.render(
     <>

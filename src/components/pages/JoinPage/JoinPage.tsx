@@ -1,24 +1,25 @@
 import PageTitle from '~/components/atom/text/PageTitle';
 import { useState } from 'react'
 import * as S from './JoinPage.style';
-import * as umsApi from "~/api/ums";
-import {IJoinData} from "~/types";
+import {IJoinPayload, IJoinResult} from "~/types";
 import Modal from "~/components/templates/Modal";
 import Fade from "~/components/templates/Fade";
 import Alert from "~/components/templates/Alert";
 
 interface IProps {
-  join(data: IJoinData): Promise<void>,
+  join(payload: IJoinPayload): Promise<void>,
   isAlertShown: boolean,
   alertErrorMessage: string
   onConfirmAlert: () => void
+  onCancel: () => void
 }
 
 const JoinPage = ({
   join,
   isAlertShown,
   alertErrorMessage,
-  onConfirmAlert
+  onConfirmAlert,
+  onCancel
 }: IProps) => {
 
   const [email, setEmail] = useState("yologger1@gmail.com")
@@ -35,48 +36,14 @@ const JoinPage = ({
 
   const onSubmit = (e) => {
     e.preventDefault()
-
-    join({
+    const payload: IJoinPayload = {
       email: email,
       nickname: nickname,
       name: name,
       password: password
-    })
-
-
-    // try {
-    // } catch (e) {
-    //
-    // }
-    //
-    // umsApi.join({
-    //   email: email,
-    //   nickname: nickname,
-    //   name: name,
-    //   password: password
-    // })
-    //     .then((response) => {
-    //       console.log(response.data)
-    //       // localStorage.setItem("Token", response.headers.authorization);
-    //       // console.log(response);
-    //       // if ((response.status = 200)) {
-    //       //   return navigate("/posts");
-    //       // }
-    //     })
-    //     .catch((err) => {
-    //       console.log(err.response.status)
-    //       console.log(err.response.data)
-    //       console.log(err.response.data.get("errorMessage"))
-    //       console.log(err.response.data.get("errorCode"))
-    //
-    //
-    //       // console.log(err.response.data)
-    //       // setMessage(err.response.data.message)
-    //       // console.log(err);
-    //     });
-
+    }
+    join(payload)
   }
-  const onCancel = () => { }
 
   return <S.Layout>
     <S.Form onSubmit={onSubmit}>

@@ -51,7 +51,7 @@ const TestPage = ({
         </S.Buttons>
         <Modal>
           <Fade in={isShownAlert} timeout={150}>
-            <Alert title="로그아웃" description={<p>This is Alert</p>} isShownClose={true} isShownCancelButton={true} confirmButtonMsg='확인' cancelButtonMessage='취소' onConfirm={onAlertConfirm} onCancel={onAlertCancel} />
+            <Alert title="alert" description={<p>This is Alert</p>} isShownClose={true} isShownCancelButton={true} confirmButtonMsg='확인' cancelButtonMessage='취소' onConfirm={onAlertConfirm} onCancel={onAlertCancel} />
           </Fade>
         </Modal>
         <Dialog show={isShownDialog} title={'this is title'} text={'this is text'} close={closeDialog} dialogs={dialogs} />
