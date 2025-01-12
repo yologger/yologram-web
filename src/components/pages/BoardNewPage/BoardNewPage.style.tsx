@@ -129,10 +129,9 @@ export const List = styled.ul`
   padding-top: 0.5rem;
 `;
 
-export const Item = styled.li`
+export const ListItem = styled.li`
     width: 100%;
     display: flex;
-    padding: 2rem 0;
     border-bottom: 1px solid ${theme.color.yologramGrey50};
 
     &:last-child {
@@ -140,7 +139,7 @@ export const Item = styled.li`
     }
 `;
 
-export const Buttons = styled.li`
+export const ListItemButtons = styled.li`
     width: 100%;
     display: flex;
     justify-content: space-between;

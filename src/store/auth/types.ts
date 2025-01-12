@@ -1,4 +1,5 @@
-import { IUserInfo } from "~/types"
+import { IUserInfo } from "~/types/userInfo"
+
 
 enum ActionTypes {
   LOGIN = "LOGIN",
@@ -8,22 +9,24 @@ enum ActionTypes {
 }
 
 export interface IAuthState {
-  isLoggedIn: boolean,
   accessToken?: string,
-  userInfo: IUserInfo
+  userInfo?: IUserInfo
 }
 
 export interface ILoginAction {
   readonly type: ActionTypes.LOGIN
   readonly payload: {
     accessToken: string,
-    isLoggedIn: boolean
+    userInfo: IUserInfo
   }
 }
 
 export interface IValidateAccessTokenAction {
   readonly type: ActionTypes.VALIDATE_ACCESS_TOKEN
-  readonly accessToken: string
+  readonly payload: {
+    accessToken: string,
+    userInfo: IUserInfo
+  }
 }
 
 export interface ILogoutAction {

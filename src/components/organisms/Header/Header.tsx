@@ -5,7 +5,7 @@ import Fade from "~/components/templates/Fade";
 import Alert from "~/components/templates/Alert";
 
 interface IHeaderProps {
-    isLoggedIn: boolean
+    accessToken?: string
     openLoginPopup: () => void
     openLogoutAlert: () => void
     isLogoutAlertShown: boolean
@@ -14,7 +14,7 @@ interface IHeaderProps {
 }
 
 const Header = ({
-    isLoggedIn,
+    accessToken,
     openLoginPopup,
     openLogoutAlert,
     isLogoutAlertShown,
@@ -35,7 +35,7 @@ const Header = ({
                     <S.HeaderMenuLink to="/">Home</S.HeaderMenuLink>
                     <S.HeaderMenuLink to="/board/new">Write</S.HeaderMenuLink>
                 </S.HeaderMenuGroup>
-                {isLoggedIn ? (
+                {accessToken ? (
                     <S.HeaderMenuGroup>
                         <S.HeaderMenuButton onClick={openLogoutAlert}>Logout</S.HeaderMenuButton>
                         <S.HeaderMenuLink to="/account">Account</S.HeaderMenuLink>

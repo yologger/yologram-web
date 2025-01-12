@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from '~/styledComponents';
 import iconBtnClose from '~/static/icons/icon_btn_close.svg';
+import OutlinedButton from '~/components/atom/button/OutlinedButton';
+import FilledButton from '~/components/atom/button/FilledButton';
 
 interface IAlertProps {
   image?: React.ReactNode;
@@ -44,9 +46,9 @@ const Alert = ({
       </Main>
       <Footer>
         {isShownCancelButton && (
-          <CancelButton onClick={onCancel}>{cancelButtonMessage || '취소'}</CancelButton>
+          <OutlinedButton onClick={onCancel}>{cancelButtonMessage || '취소'}</OutlinedButton>
         )}
-        <ConfirmButton onClick={onConfirm}>{confirmButtonMsg || '확인'}</ConfirmButton>
+        <FilledButton onClick={onConfirm}>{confirmButtonMsg || '확인'}</FilledButton>
       </Footer>
       <Background onClick={onCancel} />
     </Center>
@@ -123,6 +125,7 @@ const Close = styled.button`
 /* 하단 */
 const Footer = styled.div`
   display: flex;
+  justify-content: space-around;
   position: relative;
   border-radius: 0 0 2px 2px;
   gap: 1rem;
@@ -131,25 +134,6 @@ const Footer = styled.div`
   width: 75%;
   background-color: ${(p) => p.theme.color.content};
   z-index: 3102;
-`;
-
-const CancelButton = styled.button`
-  border-radius: 2px;
-  width: 100%;
-  height: 3rem;
-  background-color: ${(p) => p.theme.color.lightGrey};
-  font-weight: bold;
-  text-align: center;
-`;
-
-const ConfirmButton = styled.button`
-  border-radius: 2px;
-  width: 100%;
-  height: 3rem;
-  background-color: ${(p) => p.theme.color.yologramBlue200};
-  font-weight: bold;
-  color: ${(p) => p.theme.color.basic0};
-  text-align: center;
 `;
 
 /* 백그라운드 */

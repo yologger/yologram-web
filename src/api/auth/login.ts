@@ -11,6 +11,9 @@ type Response = {
     data: {
         uid: number;
         accessToken: string;
+        email: string;
+        name: string;
+        nickname: string
     };
 }
 

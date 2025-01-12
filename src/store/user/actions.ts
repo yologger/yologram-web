@@ -5,7 +5,7 @@ import * as umsApi from "~/api/ums";
 import {fail} from "~/store/error";
 import {IFailAction} from "~/store/error/types";
 
-export const joinAction = (payload: IJoinPayload) => {
+export const join = (payload: IJoinPayload) => {
     return async (dispatch: ThunkDispatch<IRootState, null, RootActions>, getState: () => IRootState): Promise<IJoinResult | IFailAction> => {
         try {
             const { data } = await umsApi.join({
@@ -14,11 +14,6 @@ export const joinAction = (payload: IJoinPayload) => {
                 nickname: payload.nickname,
                 password: payload.password
             })
-
-            console.log(data)
-
-            // const { session } = getState().auth;
-            // login 처리
 
             return {
                 data: data
@@ -35,30 +30,11 @@ export const joinAction = (payload: IJoinPayload) => {
                 }
             } } = err;
 
-            console.log(errorCode)
-            console.log(errorMessage)
-
-            // if (errorCode === 'DUPLICATE_USER') {
-            //     return { ...err.response.data.data };
-            // }
-            //
-            // if (errorCode === 'METHOD_ARGUMENT_NOT_VALID') {
-            //     return { ...err.response.data.data };
-            // }
-            //
-            // if (errorCode === 'METHOD_ARGUMENT_NOT_VALID') {
-            //     return { ...err.response.data.data };
-            // }
-            //
-            // if (errorCode === 'HTTP_MESSAGE_NOT_READABLE') {
-            //     return { ...err.response.data.data };
-            // }
-
-            if (errorCode) {
+            if (errorCode === 'DUPLICATE_USER') {
                 return { ...err.response.data.data };
             }
 
-            return dispatch(fail());
+            return dispatch(fail(errorMessage));
         }
     }
 }

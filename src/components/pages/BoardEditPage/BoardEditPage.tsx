@@ -1,5 +1,7 @@
 import PageTitle from '~/components/atom/text/PageTitle';
 import * as S from './BoardEditPage.style';
+import OutlinedButton from '~/components/atom/button/OutlinedButton';
+import FilledButton from '~/components/atom/button/FilledButton';
 
 const BoardEditPage = () => {
     return <S.Layout>
@@ -13,8 +15,8 @@ const BoardEditPage = () => {
                     <S.BoardBody />
                 </S.Item>
                 <S.Buttons>
-                    <S.CancelButton type="button">취소</S.CancelButton>
-                    <S.SaveButton type="button">수정하기</S.SaveButton>
+                    <OutlinedButton type="button">취소</OutlinedButton>
+                    <FilledButton type="button">수정하기</FilledButton>
                 </S.Buttons>
             </S.List>
         </S.Page>

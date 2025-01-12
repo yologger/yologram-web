@@ -3,20 +3,27 @@ import * as S from './AccountPage.style';
 import SectionTitle from '~/components/atom/text/SectionTitle';
 import BoardList from '~/components/organisms/Board/BoardList';
 import { useHistory } from 'react-router-dom'
+import FilledButton from '~/components/atom/button/FilledButton';
+import { ChangeEvent } from 'react';
+import FormInput from '~/components/atom/input/FormInput';
 
-const AccountPage = () => {
+interface IProps {
+  email: string,
+  onEmailChange: (e: ChangeEvent<HTMLInputElement>) => void,
+  name: string
+  onNameChange: (e: ChangeEvent<HTMLInputElement>) => void,
+  nickname: string, 
+  onNicknameChange: (e: ChangeEvent<HTMLInputElement>) => void,
+}
 
-  const email = "yologger1013@gmail.com"
-  const onEmailChanged = () => {}
-
-  const name = "yologger"
-  const onNameChanged = () => {}
-
-  const nickname = "yologger"
-  const onNicknameChanged = () => {}
+const AccountPage = ({
+  email, name, nickname, onEmailChange, onNameChange, onNicknameChange
+}: IProps) => {
 
   const history = useHistory();
+  
   const onChangePassword = () => history.push(`/change-password`)
+  const onSave = () => {}
   
   return <S.Layout>
     <S.Page>
@@ -24,13 +31,13 @@ const AccountPage = () => {
       <S.Section>
         <SectionTitle title="프로필" />
         <S.ProfileSectioInputs>
-          <S.ProfileInput label="이메일" type="email" value={email} onChange={onEmailChanged} />
-          <S.ProfileInput label="이름" type="text" value={name} onChange={onNameChanged} />
-          <S.ProfileInput label="닉네임" type="text" value={nickname} onChange={onNicknameChanged} />
+          <FormInput label="이메일" type="email" value={email} onChange={onEmailChange} flexDirection='column' disabled={true}/>
+          <FormInput label="이름" type="text" value={name} onChange={onNameChange} flexDirection='column'/>
+          <FormInput label="닉네임" type="text" value={nickname} onChange={onNicknameChange} flexDirection='column'/>
         </S.ProfileSectioInputs>
         <S.ProfileSectionButtons>
-          <S.ChangePasswordButton onClick={onChangePassword}>비밀번호 변경</S.ChangePasswordButton>
-          <S.SaveButton onClick={null}>저장</S.SaveButton>
+          <FilledButton onClick={onChangePassword} backgroundColor='#F72F33'>비밀번호 변경</FilledButton>
+          <FilledButton onClick={onSave}>저장</FilledButton>
         </S.ProfileSectionButtons>
       </S.Section>
       <S.Section>

@@ -9,9 +9,9 @@ export const success = (msg = '요청에 성공했습니다.'): ISuccessAction =
   payload: msg,
 });
 
-export const fail = (msg = '요청에 실패했습니다.'): IFailAction => ({
+export const fail = (msg): IFailAction => ({
   type: ActionTypes.FAIL,
-  payload: msg,
+  payload: `요청에 실패했습니다. (${msg})`,
 });
 
 export const unauthorized = (msg = '권한이 없습니다.'): IUnauthorizedAction => ({

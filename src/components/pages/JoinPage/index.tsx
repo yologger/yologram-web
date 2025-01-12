@@ -3,16 +3,21 @@ import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import {IRootState, RootActions} from "~/store";
 import {IJoinPayload, IJoinResult} from "~/types";
-import {joinAction} from "~/store/user";
+import {ILoginPayload, ILoginResult} from "~/types/auth";
 import {IFailAction} from "~/store/error/types";
+import {join} from "~/store/user";
+import {login} from "~/store/auth";
 
 const mapStateToProps = (state: IRootState) => ({
-    isLoggedIn: state.auth.isLoggedIn,
+    accessToken: state.auth.accessToken,
 })
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<IRootState, null, RootActions>) => ({
     onJoin: (payload: IJoinPayload) => {
-        return dispatch(joinAction(payload))
+        return dispatch(join(payload))
+    },
+    onLogin: (payload: ILoginPayload): Promise<ILoginResult | IFailAction> => {
+        return dispatch(login(payload))
     }
 })
 

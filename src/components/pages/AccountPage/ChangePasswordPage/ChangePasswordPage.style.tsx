@@ -104,31 +104,3 @@ export const Buttons = styled.div`
     direction: row;
     justify-content: space-between;
 `
-
-export const CancelButton = styled.button`
-      height: 3.5rem;
-      width: 10rem;  
-      font-size: 0.875rem;
-      font-weight: 700;
-      border-radius: 2px;    
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: ${theme.color.white};
-      background: ${theme.color.lightGrey};
-      border-radius: 0.375rem;
-  `
-
-export const SaveButton = styled.button`
-      height: 3.5rem;
-      width: 10rem;  
-      font-size: 0.875rem;
-      font-weight: 700;
-      border-radius: 2px;    
-      display: flex;
-      align-items: center;
-      justify-content: center;      
-      color: ${theme.color.basic0};
-      background: ${theme.color.yologramBlue200};
-      border-radius: 0.375rem;
-  `

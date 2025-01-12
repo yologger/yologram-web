@@ -2,13 +2,8 @@ import { RootActions } from "~/store";
 import ActionTypes, { IAuthState } from "./types";
 
 export const initialState: IAuthState = {
-    isLoggedIn: false,
     accessToken: null,
-    userInfo: {
-        email: "test@test.com",
-        name: "test_name",
-        nickname: "test_nickname"
-    }
+    userInfo: null
 }
 
 export default (state: IAuthState = initialState, action: RootActions): IAuthState => {
@@ -16,20 +11,30 @@ export default (state: IAuthState = initialState, action: RootActions): IAuthSta
         case ActionTypes.LOGIN:
             return {
                 ...state,
-                isLoggedIn: true,
-                accessToken: action.payload.accessToken
+                accessToken: action.payload.accessToken,
+                userInfo: {
+                    uid: action.payload.userInfo.uid,
+                    email: action.payload.userInfo.email,
+                    name: action.payload.userInfo.name,
+                    nickname: action.payload.userInfo.nickname
+                }
             }
         case ActionTypes.VALIDATE_ACCESS_TOKEN:
             return {
                 ...state,
-                isLoggedIn: true,
-                accessToken: action.accessToken
+                accessToken: action.payload.accessToken,
+                userInfo: {
+                    uid: action.payload.userInfo.uid,
+                    email: action.payload.userInfo.email,
+                    name: action.payload.userInfo.name,
+                    nickname: action.payload.userInfo.nickname
+                }
             }
         case ActionTypes.LOGOUT:
             return {
                 ...state,
-                isLoggedIn: false,
-                accessToken: null
+                accessToken: null,
+                userInfo: null
             }
         case ActionTypes.GET_USER_INFO:
             return state;            

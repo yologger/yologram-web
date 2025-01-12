@@ -1,18 +1,19 @@
-import { IUserInfo } from "~/types"
+
 import Header from "./Header"
 import { useState } from "react"
 import { ILogoutAction } from "~/store/auth/types"
+import { IUserInfo } from "~/types/userInfo"
 
 interface IContainerProps {
-    isLoggedIn: boolean,
     accessToken?: string,
+    userInfo?: IUserInfo,
     setLoginPopup: (isLoginPopupOpened: boolean) => void
     onLogout: () => Promise<ILogoutAction>
 }
 
 const Container = ({
-    isLoggedIn, 
     accessToken, 
+    userInfo,
     setLoginPopup,
     onLogout
 }: IContainerProps) => {
@@ -31,10 +32,13 @@ const Container = ({
     const onLogoutCancel = () => setIsLogoutAlertShown(false)
 
     return <>
-        <h1>isLoggedIn: {isLoggedIn.toString() }</h1>
-        <h1>accessToken: {accessToken}</h1>
+        <h1>accessToken: {accessToken ?? ''}</h1>
+        <h1>uid: {userInfo?.uid ?? 0}</h1>
+        <h1>email: {userInfo?.email ?? ''}</h1>
+        <h1>nickname: {userInfo?.nickname ?? ''}</h1>
+        <h1>name: {userInfo?.name ?? ''}</h1>
         <Header
-            isLoggedIn={isLoggedIn}
+            accessToken={accessToken}
             openLoginPopup={openLoginPopup}
             isLogoutAlertShown={isLogoutAlertShown}
             onLogoutConfirm={onLogoutConfirm}

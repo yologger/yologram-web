@@ -1,7 +1,7 @@
 import styled, { theme } from '~/styledComponents';
 
 import Popup from '~/components/molecules/Popup';
-import TextButton from '~/components/atom/button/TextButton';
+import OutlinedButton from '~/components/atom/button/OutlinedButton';
 
 interface IProps {
     onClose: () => void
@@ -11,7 +11,7 @@ interface IProps {
 const TestPopup = ({ onClose, showPopup }: IProps) => {
     const children = <PopupContent>
         <div>This is TestPopup</div>
-        <TextButton type='button' onClick={onClose}>Close</TextButton>
+        <OutlinedButton type='button' onClick={onClose}>Close</OutlinedButton>
     </PopupContent>
 
     return <Popup children={children} showPopup={showPopup} />

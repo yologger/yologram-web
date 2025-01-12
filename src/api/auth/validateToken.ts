@@ -1,5 +1,4 @@
 import { AxiosResponse } from "axios";
-import * as process from "process";
 
 import authApi from ".";
 
@@ -9,8 +8,11 @@ type Request = {
 
 type Response = {
     data: {
-        uid: number;
         accessToken: string;
+        uid: number;
+        email: string;
+        name: string;
+        nickname: string;
     };
 }
 

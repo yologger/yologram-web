@@ -5,6 +5,7 @@ import Fade from '~/components/templates/Fade';
 import Dialog from '~/components/molecules/Dialog';
 import { IDialog } from '~/types';
 import TestPopup from '~/components/organisms/Popup/TestPopup';
+import FilledButton from '~/components/atom/button/FilledButton';
 
 interface IPageProps {
   isShownAlert: boolean
@@ -44,10 +45,10 @@ const TestPage = ({
   return <S.Layout>
     <S.Page>
         <S.Buttons>
-          <S.Button type="button" onClick={openAlert}>Alert</S.Button>
-          <S.Button type="button" onClick={openToast}>Toast</S.Button>
-          <S.Button type="button" onClick={openPopup}>Popup</S.Button>
-          <S.Button type="button" onClick={openDialog}>Dialog</S.Button>
+          <FilledButton type="button" onClick={openAlert}>Alert</FilledButton>
+          <FilledButton type="button" onClick={openToast}>Toast</FilledButton>
+          <FilledButton type="button" onClick={openPopup}>Popup</FilledButton>
+          <FilledButton type="button" onClick={openDialog}>Dialog</FilledButton>
         </S.Buttons>
         <Modal>
           <Fade in={isShownAlert} timeout={150}>

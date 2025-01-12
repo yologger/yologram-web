@@ -151,28 +151,3 @@ export const Label = styled.div<{ center?: boolean; pad?: number }>`
     padding-top: ${pad}px;
   `};
 `;
-
-export const CancelButton = styled.button`
-    height: 3.5rem;
-    width: 10rem;  
-    font-size: 20px;
-    font-weight: 700;
-    border-radius: 2px;    
-    display: flex;
-    align-items: center;
-    justify-content: center;      
-    background: ${theme.color.lightGrey};
-`
-
-export const SaveButton = styled.button`
-    height: 3.5rem;
-    width: 10rem;  
-    font-size: 20px;
-    font-weight: 700;
-    border-radius: 2px;    
-    display: flex;
-    align-items: center;
-    justify-content: center;      
-    color: ${theme.color.basic0};
-    background: ${theme.color.yologramBlue200};
-`
