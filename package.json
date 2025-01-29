@@ -12,7 +12,9 @@
     "build:staging": "webpack --config ./webpack.staging.js",
     "build:prod": "webpack --config ./webpack.production.js",
     "format": "prettier --check ./src",
-    "format:fix": "prettier --write ./src"
+    "format:fix": "prettier --write ./src",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint --fix ./src"
   },
   "dependencies": {
     "react": "^19.0.0",
@@ -38,6 +40,12 @@
     "process": "^0.11.10",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
-    "prettier": "^3.0.3"
+    "prettier": "^3.0.3",    "eslint": "^9.19.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-react": "^7.37.4",
+    "globals": "^15.14.0",
+    "@eslint/js": "^9.19.0",
+    "typescript-eslint": "^8.22.0"
   }
 }

@@ -1,4 +1,15 @@
 {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "eslint.enable": true,   // ESLint 기능을 활성화
+    "eslint.run": "onType",  // 코드 입력 중에 ESLint가 실행되도록 설정 (또는 "onSave"로 저장 시 실행)
+    "eslint.validate": [
+      "javascript",          // JavaScript 파일에 대해 ESLint 적용
+      "javascriptreact",     // React (JSX) 파일에 대해 ESLint 적용
+      "typescript",          // TypeScript 파일에 대해 ESLint 적용
+      "typescriptreact"      // TypeScript (TSX) 파일에 대해 ESLint 적용
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "always"
+    }
 }
