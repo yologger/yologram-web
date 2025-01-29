@@ -1,12 +1,17 @@
-import FilledButton from '~/components/atom/button/FilledButton';
-import OutlinedButton from '~/components/atom/button/OutlinedButton';
+import { Route, Routes } from 'react-router';
+import Layout from '~/components/template/Layout';
+import HomePage from '~/pages/HomePage';
+import TestPage from '~/pages/TestPage';
 
 const App = () => {
   return (
     <>
-      <h1>This is App.tsx</h1>
-      <FilledButton onClick={null}>FilledButton</FilledButton>
-      <OutlinedButton onClick={null}>OutlinedButton</OutlinedButton>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/test" element={<TestPage />} />
+        </Routes>
+      </Layout>
     </>
   );
 };
