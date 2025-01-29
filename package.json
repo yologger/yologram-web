@@ -10,7 +10,9 @@
     "start:prod": "webpack serve --config ./webpack.production.js --open",
     "build:dev": "webpack --config ./webpack.development.js",
     "build:staging": "webpack --config ./webpack.staging.js",
-    "build:prod": "webpack --config ./webpack.production.js"
+    "build:prod": "webpack --config ./webpack.production.js",
+    "format": "prettier --check ./src",
+    "format:fix": "prettier --write ./src"
   },
   "dependencies": {
     "react": "^19.0.0",
@@ -35,6 +37,7 @@
     "dotenv": "^16.4.7",
     "process": "^0.11.10",
     "@types/react": "^19.0.8",
-    "@types/react-dom": "^19.0.3"
+    "@types/react-dom": "^19.0.3",
+    "prettier": "^3.0.3"
   }
 }
