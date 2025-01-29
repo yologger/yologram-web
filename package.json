@@ -56,6 +56,11 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^14.6.1",
-    "jest-environment-jsdom": "^29.7.0"
+    "jest-environment-jsdom": "^29.7.0",
+    "styled-components": "^6.1.14",
+    "styled-normalize": "^8.1.1",
+    "styled-reset": "^4.5.2",
+    "polished": "^4.3.1",
+    "@types/styled-components": "^5.1.34"
   }
 }
