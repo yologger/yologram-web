@@ -6,7 +6,6 @@ interface IContainerProps {
   showPopup: boolean;
   zIndex?: number;
   backgroundOpacity?: number;
-  popupCount: number;
   handleBackground?(): void;
 }
 
@@ -15,30 +14,6 @@ class Container extends React.Component<IContainerProps> {
     const { showPopup } = this.props;
     if (showPopup) {
       document.body.style.overflow = 'hidden';
-    }
-  }
-
-  public componentDidUpdate(prevProps: IContainerProps) {
-    const { popupCount, showPopup } = this.props;
-    if (showPopup !== prevProps.showPopup) {
-      if (showPopup) {
-        if (popupCount === 0) {
-          document.body.style.overflow = 'hidden';
-        }
-      } else {
-        if (popupCount === 1) {
-          document.body.style.overflow = 'auto';
-        }
-      }
-    }
-  }
-
-  public componentWillUnmount() {
-    const { showPopup, popupCount } = this.props;
-    if (showPopup) {
-      if (popupCount === 1) {
-        document.body.style.overflow = 'auto';
-      }
     }
   }
 

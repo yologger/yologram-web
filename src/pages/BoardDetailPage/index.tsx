@@ -1,7 +1,8 @@
+import { connect } from 'react-redux';
 import Container from './container';
 
-const withSomething = (WrappedComponent) => (props) => {
-  return <WrappedComponent {...props} />;
-};
+const mapStateToProps = () => ({});
 
-export default withSomething(Container);
+const mapDispatchToProps = () => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Container);
