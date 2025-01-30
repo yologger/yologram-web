@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const { ESBuildMinifyPlugin } = require('esbuild-loader');
 
 require('dotenv').config({ path: './.env.production' });
 
@@ -15,10 +16,23 @@ module.exports = {
     plugins: [new TsconfigPathsPlugin()]
   },
   output: {
-    path: path.resolve(__dirname, 'build'), // 번들링 결과물 경로
-    filename: 'main.js' // 번들링 결과물 파일명,
+    path: path.resolve(__dirname, 'build'),
+    filename: '[id].[contenthash:8].js',
+    chunkFilename: 'js/[id].[contenthash:8].chunk.js',
+    clean: true
   },
-  optimization: { minimizer: [] },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    },
+    minimizer: [
+      new ESBuildMinifyPlugin({
+        css: true,
+        minify: true
+      })
+    ],
+    runtimeChunk: 'single'
+  },
   module: {
     rules: [
       {
@@ -88,10 +102,19 @@ module.exports = {
     }),
     new webpack.EnvironmentPlugin({
       ...process.env
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].[contenthash:8].css',
+      chunkFilename: 'css/[name].[contenthash:8].chunk.css',
+      ignoreOrder: false
     })
   ],
   devServer: {
     port: 3000,
     historyApiFallback: true
+  },
+  performance: {
+    maxAssetSize: 500000, // asset size limit = 500KB
+    maxEntrypointSize: 1000000 // entrypoint size limit = 1MB
   }
 };
