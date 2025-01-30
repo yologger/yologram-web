@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="169" height="22" viewBox="0 0 169 22">
+    <g fill="#3F3E4B" fill-rule="evenodd">
+        <text font-family="Roboto-Regular, Roboto" font-size="16" letter-spacing="-.5" transform="translate(-3 -2)">
+            <tspan x="28" y="24">Download for Android</tspan>
+        </text>
+        <path d="M.078.377l10.795 11.595L.343 22a.684.684 0 0 1-.335-.488L0 21.4V.69C0 .575.03.47.078.377zM11.34 12.473l2.087 2.242-11.58 6.798 9.493-9.04zm4.108-3.911l3.212 1.886c.42.246.45.837.09 1.133l-.09.063-4.628 2.717L11.835 12l3.613-3.44zM.66 0a.66.66 0 0 1 .27.05l.088.043L14.833 8.2l-3.465 3.3L.661 0z"/>
+    </g>
+</svg>
