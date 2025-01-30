@@ -19,7 +19,7 @@ const Header = ({
   onLogout,
   closeLogoutAlert
 }: IProps) => {
-  const isLoggedIn = false;
+  const isLoggedIn = true;
 
   return (
     <>
