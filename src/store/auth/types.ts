@@ -1,4 +1,4 @@
-import { IUserInfo } from '~/types';
+import { IUserInfo } from '~/types/userInfo';
 
 enum ActionTypes {
   LOGIN = 'LOGIN',

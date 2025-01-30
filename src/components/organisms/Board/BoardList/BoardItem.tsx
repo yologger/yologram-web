@@ -4,7 +4,7 @@ import { ReactComponent as SubscribeIcon } from '~/static/icons/custom/subscribe
 import { ReactComponent as LikeIcon } from '~/static/icons/custom/like.svg';
 import { ReactComponent as CommentIcon } from '~/static/icons/custom/comment.svg';
 import DefaultProfileAvatar from '~/static/icons/custom/default_profile_avatar.svg';
-import { IBoard } from '~/types';
+import { IBoard } from '~/types/board';
 
 interface IProps {
   board: IBoard;

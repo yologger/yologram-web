@@ -1,8 +1,8 @@
-import { IJoinPayload, IJoinResult } from '~/types';
 import { ThunkDispatch } from 'redux-thunk';
 import { IRootState, RootActions } from '~/store';
 import * as umsApi from '~/api/ums';
 import { fail } from '~/store/error';
+import { IJoinPayload, IJoinResult } from '~/types/ums';
 
 export const join = (payload: IJoinPayload) => {
   return async (

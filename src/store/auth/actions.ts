@@ -4,7 +4,8 @@ import { IRootState, RootActions } from '~/store';
 import { IFailAction } from '~/store/error/types';
 import * as authApi from '~/api/auth';
 import { fail } from '~/store/error';
-import { ILoginPayload, ILoginResult, ILogoutResult, IUserInfo } from '~/types';
+import { ILoginPayload, ILoginResult } from '~/types/auth';
+import { IUserInfo } from '~/types/userInfo';
 
 export const validateAccessToken = () => {
   return async (

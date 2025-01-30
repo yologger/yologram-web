@@ -5,7 +5,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LoadingIcon from '~/static/icons/custom/loading.gif';
-import { IBoard } from '~/types';
+import { IBoard } from '~/types/board';
 
 interface IProps {
   boards: IBoard[];

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Transition } from 'react-transition-group';
 
-import { IDialog } from '~/types';
+import { IDialog } from '~/types/dialog';
 import { IButton } from '~/types/button';
 import closeIcon from '~/static/icons/ic-close.svg';
 import Portal from '~/components/template/Portal';
