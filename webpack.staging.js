@@ -16,6 +16,7 @@ module.exports = {
     plugins: [new TsconfigPathsPlugin()]
   },
   output: {
+    publicPath: '/',
     path: path.resolve(__dirname, 'build'),
     filename: '[id].[contenthash:8].js',
     chunkFilename: 'js/[id].[contenthash:8].chunk.js',
@@ -84,7 +85,7 @@ module.exports = {
           {
             type: 'asset',
             generator: {
-              filename: 'pc-static/resource/[hash][ext][query]'
+              filename: 'static/resource/[hash][ext][query]'
             }
           }
         ]

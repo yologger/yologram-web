@@ -16,6 +16,7 @@ module.exports = {
     plugins: [new TsconfigPathsPlugin()]
   },
   output: {
+    publicPath: '/',
     path: path.resolve(__dirname, 'build'), // 번들링 결과물 경로
     filename: 'main.js' // 번들링 결과물 파일명,
   },
@@ -71,7 +72,7 @@ module.exports = {
           {
             type: 'asset',
             generator: {
-              filename: 'pc-static/resource/[hash][ext][query]'
+              filename: 'static/resource/[hash][ext][query]'
             }
           }
         ]
