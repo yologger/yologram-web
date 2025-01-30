@@ -1,12 +1,25 @@
 import styled, { theme } from '~/styles';
 import { Link } from 'react-router-dom';
+import Modal from '~/components/template/Modal';
+import Fade from '~/components/template/Fade';
+import Alert from '~/components/template/Alert';
 
 interface IProps {
   openLoginPopup: () => void;
+  showLogoutAlert: boolean;
+  openLogoutAlert: () => void;
+  onLogout: () => void;
+  closeLogoutAlert: () => void;
 }
 
-const Header = ({ openLoginPopup }: IProps) => {
-  const isLoggedIn = false;
+const Header = ({
+  openLoginPopup,
+  showLogoutAlert,
+  openLogoutAlert,
+  onLogout,
+  closeLogoutAlert
+}: IProps) => {
+  const isLoggedIn = true;
 
   return (
     <>
@@ -23,7 +36,7 @@ const Header = ({ openLoginPopup }: IProps) => {
           </Menus>
           {isLoggedIn ? (
             <Menus>
-              <MenuButton onClick={null}>Logout</MenuButton>
+              <MenuButton onClick={openLogoutAlert}>Logout</MenuButton>
               <MenuLink to="/account">Account</MenuLink>
             </Menus>
           ) : (
@@ -34,6 +47,19 @@ const Header = ({ openLoginPopup }: IProps) => {
           )}
         </HeaderBottomWrapper>
       </HeaderBottom>
+      <Modal>
+        <Fade in={showLogoutAlert} timeout={150}>
+          <Alert
+            title="로그아웃"
+            description={<p>로그아웃 하시겠어요?</p>}
+            isShownCancelButton={true}
+            confirmButtonMessage="확인"
+            cancelButtonMessage="취소"
+            onConfirm={onLogout}
+            onCancel={closeLogoutAlert}
+          />
+        </Fade>
+      </Modal>
     </>
   );
 };
