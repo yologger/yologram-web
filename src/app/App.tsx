@@ -12,12 +12,13 @@ const BoardDetailPage = lazy(() => import('~/pages/BoardDetailPage'));
 const TestPage = lazy(() => import('~/pages/TestPage'));
 const ChangePasswordPage = lazy(() => import('~/pages/AccountPage/ChangePasswordPage'));
 import Toast from '~/components/template/Toast';
+import LoadingPage from '~/pages/LoadingPage';
 
 const App = () => {
   return (
     <>
       <Layout>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<LoadingPage />}>
           <Routes>
             <Route index element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
