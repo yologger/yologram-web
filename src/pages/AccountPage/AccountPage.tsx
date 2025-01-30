@@ -13,7 +13,7 @@ interface IInputProps {
 }
 
 const AccountPage = () => {
-  const onChangePassword = () => { };
+  const onChangePassword = () => {};
 
   return (
     <>
