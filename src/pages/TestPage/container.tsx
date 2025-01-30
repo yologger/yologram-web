@@ -29,6 +29,10 @@ const Container = ({ success }: IContainerProps) => {
     setShowPopup(false);
   };
 
+  const openToast = () => {
+    success('This is toast');
+  };
+
   return (
     <TestPage
       showAlert={showAlert}
@@ -38,6 +42,7 @@ const Container = ({ success }: IContainerProps) => {
       showPopup={showPopup}
       openPopup={openPopup}
       closePopup={closePopup}
+      openToast={openToast}
     />
   );
 };

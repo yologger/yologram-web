@@ -1,6 +1,6 @@
 import styled from '~/styles';
 
-import Popup from '../Popup';
+import Popup from '../../template/Popup';
 import OutlinedButton from '~/components/atom/button/OutlinedButton';
 
 interface TestPopupProps {

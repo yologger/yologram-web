@@ -10,6 +10,7 @@ import BoardEditPage from '~/pages/BoardEditPage';
 import BoardDetailPage from '~/pages/BoardDetailPage';
 import TestPage from '~/pages/TestPage';
 import ChangePasswordPage from '~/pages/AccountPage/ChangePasswordPage';
+import Toast from '~/components/template/Toast';
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Layout>
+      <Toast />
     </>
   );
 };

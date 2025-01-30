@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import FilledButton from '~/components/atom/button/FilledButton';
-import Alert from '~/components/molecules/Alert';
+import Alert from '~/components/template/Alert';
 import TestPopup from '~/components/molecules/TestPopup';
 import Fade from '~/components/template/Fade';
 import Modal from '~/components/template/Modal';
@@ -13,6 +13,7 @@ interface IProps {
   showPopup: boolean;
   openPopup: () => void;
   closePopup: () => void;
+  openToast: () => void;
 }
 
 const TestPage = ({
@@ -22,7 +23,8 @@ const TestPage = ({
   onAlertCancel,
   showPopup,
   openPopup,
-  closePopup
+  closePopup,
+  openToast
 }: IProps) => {
   return (
     <Wrapper>
@@ -33,7 +35,9 @@ const TestPage = ({
         <FilledButton type="button" onClick={openPopup}>
           Popup
         </FilledButton>
-        <FilledButton>Toast</FilledButton>
+        <FilledButton type="button" onClick={openToast}>
+          Toast
+        </FilledButton>
       </Buttons>
       <Modal>
         <Fade in={showAlert} timeout={150}>
