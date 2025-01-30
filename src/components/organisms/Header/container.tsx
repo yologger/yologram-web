@@ -1,9 +1,16 @@
 import Header from './Header';
+import { useState } from 'react';
 
-const Container = () => {
+interface IContainerProps {
+  setLoginPopup: (isLoginPopupOpened: boolean) => void;
+}
+
+const Container = ({ setLoginPopup }: IContainerProps) => {
+  const openLoginPopup = () => setLoginPopup(true);
+
   return (
     <>
-      <Header />
+      <Header openLoginPopup={openLoginPopup} />
     </>
   );
 };

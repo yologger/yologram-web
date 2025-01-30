@@ -1,17 +1,17 @@
 import styled, { theme } from '~/styles';
 
 interface IProps {
-    title: React.ReactNode;
-    subtitle?: React.ReactNode;
+  title: React.ReactNode;
+  subtitle?: React.ReactNode;
 }
 
 const SectionTitle = ({ title, subtitle }: IProps) => {
-    return (
-        <Title>
-            {title}
-            {subtitle && <Subtitle>{subtitle}</Subtitle>}
-        </Title>
-    );
+  return (
+    <Title>
+      {title}
+      {subtitle && <Subtitle>{subtitle}</Subtitle>}
+    </Title>
+  );
 };
 
 const Title = styled.h1`

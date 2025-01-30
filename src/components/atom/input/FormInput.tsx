@@ -48,9 +48,9 @@ const Layout = styled.div<{ $flexDirection: 'row' | 'column' }>`
     else return 'column';
   }};
   padding: ${(props) => {
-    if (props.$flexDirection == 'row') return '2rem';
-    else return '0';
-  }}
+      if (props.$flexDirection == 'row') return '2rem';
+      else return '0';
+    }}
     0;
   gap: 20px;
 `;

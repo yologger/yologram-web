@@ -1,7 +1,11 @@
 import styled, { theme } from '~/styles';
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+interface IProps {
+  openLoginPopup: () => void;
+}
+
+const Header = ({ openLoginPopup }: IProps) => {
   const isLoggedIn = false;
 
   return (
@@ -24,7 +28,7 @@ const Header = () => {
             </Menus>
           ) : (
             <Menus>
-              <MenuButton onClick={null}>Login</MenuButton>
+              <MenuButton onClick={openLoginPopup}>Login</MenuButton>
               <MenuLink to="/join">Join</MenuLink>
             </Menus>
           )}

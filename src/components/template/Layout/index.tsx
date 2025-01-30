@@ -1,7 +1,12 @@
 import Container from './container';
+import { connect } from 'react-redux';
+import { IRootState } from '~/store';
+import { Dispatch } from 'redux';
 
-const withSomething = (WrappedComponent) => (props) => {
-  return <WrappedComponent {...props} />;
-};
+const mapStateToProps = (state: IRootState) => ({
+  isLoginPopupOpened: state.common.isLoginPopupOpened
+});
 
-export default withSomething(Container);
+const mapDispatchToProps = (dispatch: Dispatch) => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Container);
