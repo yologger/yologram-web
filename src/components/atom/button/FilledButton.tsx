@@ -39,7 +39,7 @@ export const StyledButton = styled.button<IProps>`
   height: 3.5rem;
   border-radius: 4px;
   color: ${(props) => props.textColor || theme.color.basic0};
-  background-color: ${(props) => props.backgroundColor || '#007bff'};
+  background-color: ${(props) => props.backgroundColor || theme.color.yologgerBlue200};
 
   &:hover {
     background-color: ${(props) => darken(0.13, props.backgroundColor || '#007bff')};

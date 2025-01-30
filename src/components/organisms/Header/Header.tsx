@@ -2,7 +2,7 @@ import styled, { theme } from '~/styles';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
-  const isLoggedIn = true;
+  const isLoggedIn = false;
 
   return (
     <>

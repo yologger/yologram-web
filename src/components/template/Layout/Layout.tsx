@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import styled from '~/styles';
-import Header from '../Header';
+import Header from '../../organisms/Header';
 
 interface IProps {
   children: ReactNode;
