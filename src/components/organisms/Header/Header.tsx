@@ -10,6 +10,7 @@ interface IProps {
   openLogoutAlert: () => void;
   onLogout: () => void;
   closeLogoutAlert: () => void;
+  accessToken?: string;
 }
 
 const Header = ({
@@ -17,10 +18,9 @@ const Header = ({
   showLogoutAlert,
   openLogoutAlert,
   onLogout,
-  closeLogoutAlert
+  closeLogoutAlert,
+  accessToken
 }: IProps) => {
-  const isLoggedIn = true;
-
   return (
     <>
       <HeaderTop>
@@ -34,7 +34,7 @@ const Header = ({
             <MenuLink to="/">Home</MenuLink>
             <MenuLink to="/board/new">Write</MenuLink>
           </Menus>
-          {isLoggedIn ? (
+          {accessToken ? (
             <Menus>
               <MenuButton onClick={openLogoutAlert}>Logout</MenuButton>
               <MenuLink to="/account">Account</MenuLink>

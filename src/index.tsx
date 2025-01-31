@@ -5,6 +5,9 @@ import { GlobalStyle, theme, ThemeProvider } from './styles';
 import { BrowserRouter } from 'react-router';
 import { Provider } from 'react-redux';
 import store from './store';
+import { validateAccessToken } from './store/auth';
+
+store.dispatch(validateAccessToken());
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
