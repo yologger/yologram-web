@@ -1,7 +1,7 @@
 import { ThunkDispatch } from 'redux-thunk';
 import { IRootState, RootActions } from '~/store';
 import * as umsApi from '~/api/ums';
-import { fail } from '~/store/error';
+import { error, fail } from '~/store/error';
 import { IJoinPayload, IJoinResult } from '~/types/ums';
 
 export const join = (payload: IJoinPayload) => {
@@ -21,20 +21,25 @@ export const join = (payload: IJoinPayload) => {
         data: data
       };
     } catch (err) {
-      const {
-        response: {
-          data: {
-            data: { errorCode, errorMessage }
-          }
+      const { response } = err;
+      const { data } = response;
+
+      if (data.data) {
+        const { errorCode, errorMessage } = data.data;
+        if (errorCode === 'DUPLICATE_USER') {
+          return { ...err.response.data.data };
         }
-      } = err;
 
-      if (errorCode === 'DUPLICATE_USER') {
+        dispatch(fail(`[${errorCode}] ${errorMessage}`));
         return { ...err.response.data.data };
+      } else {
+        dispatch(error());
+        return {
+          data: null,
+          errorCode: 'Not Found',
+          errorMessage: '서버에 접근할 수 없습니다.'
+        };
       }
-
-      dispatch(fail(`[${errorCode}] ${errorMessage}`));
-      return { ...err.response.data.data };
     }
   };
 };

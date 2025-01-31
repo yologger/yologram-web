@@ -115,7 +115,8 @@ module.exports = {
     historyApiFallback: true
   },
   performance: {
-    maxAssetSize: 500000, // asset size limit = 500KB
+    hints: false,
+    maxAssetSize: 1000000, // asset size limit = 1MB
     maxEntrypointSize: 1000000 // entrypoint size limit = 1MB
   }
 };

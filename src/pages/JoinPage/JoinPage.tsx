@@ -1,3 +1,4 @@
+import { ChangeEvent } from 'react';
 import FilledButton from '~/components/atom/button/FilledButton';
 import OutlinedButton from '~/components/atom/button/OutlinedButton';
 import FormInput from '~/components/atom/input/FormInput';
@@ -5,56 +6,93 @@ import PageTitle from '~/components/atom/text/PageTitle';
 import styled from '~/styles';
 
 interface IProps {
-  onSubmit: () => void;
+  email: string;
+  emailErrorMessage: string;
+  onEmailChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  name: string;
+  nameErrorMessage: string;
+  onNameChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  nickname: string;
+  nicknameErrorMessage: string;
+  onNicknameChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  password: string;
+  passwordErrorMessage: string;
+  onPasswordChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onJoin: () => void;
   onCancel: () => void;
 }
 
-const JoinPage = ({ onSubmit, onCancel }: IProps) => {
+const JoinPage = ({
+  email,
+  emailErrorMessage,
+  onEmailChange,
+  name,
+  nameErrorMessage,
+  onNameChange,
+  nickname,
+  nicknameErrorMessage,
+  onNicknameChange,
+  password,
+  passwordErrorMessage,
+  onPasswordChange,
+  onJoin,
+  onCancel
+}: IProps) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onJoin();
+  };
+
+  const handleCancel = () => {
+    //e.preventDefault();
+    onCancel();
+  };
+
   return (
     <Wrapper>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <PageTitle title="회원가입" />
         <FormInput
-          label="이메일"
+          label="이ç메일"
           flexDirection="row"
-          type="email"
+          type="text"
           placeholder="이메일을 입력해주세요"
-          value={null}
-          onChange={null}
-          error={null}
+          value={email}
+          onChange={onEmailChange}
+          error={emailErrorMessage}
         />
         <FormInput
           label="이름"
           flexDirection="row"
           type="text"
           placeholder="이름을 입력해주세요"
-          value={null}
-          onChange={null}
-          error={null}
+          value={name}
+          onChange={onNameChange}
+          error={nameErrorMessage}
         />
         <FormInput
           label="닉네임"
           flexDirection="row"
           type="text"
           placeholder="닉네임을 입력해주세요"
-          value={null}
-          onChange={null}
-          error={null}
+          value={nickname}
+          onChange={onNicknameChange}
+          error={nicknameErrorMessage}
         />
         <FormInput
           label="비밀번호"
           flexDirection="row"
           type="password"
           placeholder="비밀번호를 입력해주세요"
-          value={null}
-          onChange={null}
-          error={null}
+          value={password}
+          onChange={onPasswordChange}
+          error={passwordErrorMessage}
         />
         <Buttons>
-          <OutlinedButton onClick={onCancel}>취소</OutlinedButton>
-          <FilledButton onClick={onSubmit} type="submit">
-            회원가입
-          </FilledButton>
+          <OutlinedButton type="submit" onClick={handleCancel}>
+            취소
+          </OutlinedButton>
+          <FilledButton type="submit">회원가입</FilledButton>
         </Buttons>
       </Form>
     </Wrapper>

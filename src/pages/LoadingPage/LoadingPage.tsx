@@ -2,11 +2,11 @@ import styled from '~/styles';
 import { ClipLoader } from 'react-spinners';
 
 const LoadingPage = () => {
-    return (
-        <Wrapper>
-            <ClipLoader />
-        </Wrapper>
-    );
+  return (
+    <Wrapper>
+      <ClipLoader />
+    </Wrapper>
+  );
 };
 
 export default LoadingPage;
