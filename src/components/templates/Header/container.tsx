@@ -1,6 +1,7 @@
 import { IUserInfo } from '~/types/userInfo';
 import Header from './Header';
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 
 interface IContainerProps {
   setLoginPopup: (isLoginPopupOpened: boolean) => void;
@@ -10,6 +11,7 @@ interface IContainerProps {
 }
 
 const Container = ({ setLoginPopup, accessToken, userInfo, onLogout }: IContainerProps) => {
+  const navigate = useNavigate();
   const openLoginPopup = () => setLoginPopup(true);
   const [showLogoutAlert, setShowLogoutAlert] = useState(false);
   const openLogoutAlert = () => setShowLogoutAlert(true);
@@ -19,13 +21,16 @@ const Container = ({ setLoginPopup, accessToken, userInfo, onLogout }: IContaine
     setShowLogoutAlert(false);
   };
 
+  const handleBoardNew = () => {
+    if (accessToken) {
+      navigate('/board/new');
+    } else {
+      setLoginPopup(true);
+    }
+  };
+
   return (
     <>
-      <h1>accessToken: {accessToken ?? ''}</h1>
-      <h1>uid: {userInfo?.uid ?? 0}</h1>
-      <h1>email: {userInfo?.email ?? ''}</h1>
-      <h1>nickname: {userInfo?.nickname ?? ''}</h1>
-      <h1>name: {userInfo?.name ?? ''}</h1>
       <Header
         accessToken={accessToken}
         openLoginPopup={openLoginPopup}
@@ -33,6 +38,7 @@ const Container = ({ setLoginPopup, accessToken, userInfo, onLogout }: IContaine
         openLogoutAlert={openLogoutAlert}
         closeLogoutAlert={closeLogoutAlert}
         onLogout={handleLogout}
+        handleBoardNew={handleBoardNew}
       />
     </>
   );

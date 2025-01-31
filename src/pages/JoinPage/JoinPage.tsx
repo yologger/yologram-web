@@ -53,7 +53,7 @@ const JoinPage = ({
       <Form onSubmit={handleSubmit}>
         <PageTitle title="회원가입" />
         <FormInput
-          label="이ç메일"
+          label="이메일"
           flexDirection="row"
           type="text"
           placeholder="이메일을 입력해주세요"

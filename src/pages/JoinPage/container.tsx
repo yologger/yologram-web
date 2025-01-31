@@ -2,16 +2,25 @@ import { useNavigate } from 'react-router';
 import JoinPage from './JoinPage';
 import { IJoinPayload, IJoinResult } from '~/types/ums';
 import { ILoginPayload, ILoginResult } from '~/types/auth';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useLayoutEffect, useState } from 'react';
+import { IUserInfo } from '~/types/userInfo';
 
 interface IContainerProps {
   onJoin: (payload: IJoinPayload) => Promise<IJoinResult>;
   onLogin: (payload: ILoginPayload) => Promise<ILoginResult>;
   onError: (msg: string) => void;
+  accessToken?: string;
+  userInfo?: IUserInfo;
 }
 
-const Container = ({ onJoin, onLogin, onError }: IContainerProps) => {
+const Container = ({ onJoin, onLogin, onError, accessToken, userInfo }: IContainerProps) => {
   const navigate = useNavigate();
+
+  useLayoutEffect(() => {
+    if (accessToken) {
+      navigate('/', { replace: true });
+    }
+  }, [accessToken]);
 
   const [email, setEmail] = useState('yologger1@gmail.com');
   const [emailErrorMessage, setEmailErrorMessage] = useState('');

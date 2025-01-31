@@ -1,6 +1,21 @@
+import { IUserInfo } from '~/types/userInfo';
 import BoardNewPage from './BoardNewPage';
+import { useNavigate } from 'react-router';
+import { useLayoutEffect } from 'react';
 
-const Container = () => {
+interface IContainerProps {
+  accessToken?: string;
+  userInfo?: IUserInfo;
+}
+
+const Container = ({ accessToken, userInfo }: IContainerProps) => {
+  const navigate = useNavigate();
+
+  useLayoutEffect(() => {
+    if (!accessToken) {
+      navigate('/', { replace: true });
+    }
+  }, [accessToken]);
   return <BoardNewPage />;
 };
 

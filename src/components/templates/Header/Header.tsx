@@ -11,6 +11,7 @@ interface IProps {
   onLogout: () => void;
   closeLogoutAlert: () => void;
   accessToken?: string;
+  handleBoardNew: () => void;
 }
 
 const Header = ({
@@ -19,20 +20,20 @@ const Header = ({
   openLogoutAlert,
   onLogout,
   closeLogoutAlert,
-  accessToken
+  accessToken,
+  handleBoardNew
 }: IProps) => {
   return (
     <>
-      <HeaderTop>
-        <h1>ENV: {process.env.REACT_APP_ENV}</h1>
-        <h1>API_URL: {process.env.REACT_APP_API}</h1>
+      {/* <HeaderTop>
         <HeaderTopWrapper></HeaderTopWrapper>
-      </HeaderTop>
+      </HeaderTop> */}
       <HeaderBottom>
         <HeaderBottomWrapper>
           <Menus>
             <MenuLink to="/">Home</MenuLink>
-            <MenuLink to="/board/new">Write</MenuLink>
+            {/* <MenuLink to="/board/new">Write</MenuLink> */}
+            <MenuButton onClick={handleBoardNew}>Write</MenuButton>
           </Menus>
           {accessToken ? (
             <Menus>

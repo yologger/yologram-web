@@ -8,7 +8,10 @@ import { join } from '~/store/user';
 import { login } from '~/store/auth';
 import { fail } from '~/store/error';
 
-const mapStateToProps = (state: IRootState) => ({});
+const mapStateToProps = (state: IRootState) => ({
+  accessToken: state.auth.accessToken,
+  userInfo: state.auth.userInfo
+});
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<IRootState, null, RootActions>) => ({
   onJoin: (payload: IJoinPayload): Promise<IJoinResult> => {
