@@ -6,14 +6,16 @@ interface IContainerProps {
   setLoginPopup: (isLoginPopupOpened: boolean) => void;
   accessToken?: string;
   userInfo?: IUserInfo;
+  onLogout: () => Promise<void>;
 }
 
-const Container = ({ setLoginPopup, accessToken, userInfo }: IContainerProps) => {
+const Container = ({ setLoginPopup, accessToken, userInfo, onLogout }: IContainerProps) => {
   const openLoginPopup = () => setLoginPopup(true);
   const [showLogoutAlert, setShowLogoutAlert] = useState(false);
   const openLogoutAlert = () => setShowLogoutAlert(true);
   const closeLogoutAlert = () => setShowLogoutAlert(false);
-  const onLogout = () => {
+  const handleLogout = async () => {
+    await onLogout();
     setShowLogoutAlert(false);
   };
 
@@ -30,7 +32,7 @@ const Container = ({ setLoginPopup, accessToken, userInfo }: IContainerProps) =>
         showLogoutAlert={showLogoutAlert}
         openLogoutAlert={openLogoutAlert}
         closeLogoutAlert={closeLogoutAlert}
-        onLogout={onLogout}
+        onLogout={handleLogout}
       />
     </>
   );
