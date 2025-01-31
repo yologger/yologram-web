@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import FilledButton from '~/components/atom/button/FilledButton';
-import Alert from '~/components/template/Alert';
-import TestPopup from '~/components/molecules/TestPopup';
-import Fade from '~/components/template/Fade';
-import Modal from '~/components/template/Modal';
+import FilledButton from '~/components/atoms/button/FilledButton';
+import Alert from '~/components/molecules/Alert';
+import TestPopup from '~/components/organisms/TestPopup';
+import Fade from '~/components/molecules/Fade';
+import Modal from '~/components/molecules/Modal';
 
 interface IProps {
   showAlert: boolean;

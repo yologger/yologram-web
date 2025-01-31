@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import PageTitle from '~/components/atom/text/PageTitle';
+import PageTitle from '~/components/atoms/text/PageTitle';
 import { theme } from '~/styles';
 import { ChangeEvent } from 'react';
-import FormInput from '~/components/atom/input/FormInput';
-import OutlinedButton from '~/components/atom/button/OutlinedButton';
-import FilledButton from '~/components/atom/button/FilledButton';
+import FormInput from '~/components/atoms/input/FormInput';
+import OutlinedButton from '~/components/atoms/button/OutlinedButton';
+import FilledButton from '~/components/atoms/button/FilledButton';
 
 interface IInputProps {
   value: string;

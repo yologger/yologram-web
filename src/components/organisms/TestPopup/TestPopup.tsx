@@ -1,7 +1,7 @@
 import styled from '~/styles';
 
-import Popup from '../../template/Popup';
-import OutlinedButton from '~/components/atom/button/OutlinedButton';
+import Popup from '../../molecules/Popup';
+import OutlinedButton from '~/components/atoms/button/OutlinedButton';
 
 interface TestPopupProps {
   onClose: () => void;

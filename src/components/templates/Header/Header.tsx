@@ -1,8 +1,8 @@
 import styled, { theme } from '~/styles';
 import { Link } from 'react-router-dom';
-import Modal from '~/components/template/Modal';
-import Fade from '~/components/template/Fade';
-import Alert from '~/components/template/Alert';
+import Modal from '~/components/molecules/Modal';
+import Fade from '~/components/molecules/Fade';
+import Alert from '~/components/molecules/Alert';
 
 interface IProps {
   openLoginPopup: () => void;

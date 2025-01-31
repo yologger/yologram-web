@@ -1,8 +1,8 @@
 import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router';
-import Layout from '~/components/template/Layout';
+import Toast from '~/components/molecules/Toast';
+import Layout from '~/components/templates/Layout';
 const HomePage = lazy(() => import('~/pages/HomePage'));
-const LoginPage = lazy(() => import('~/pages/LoginPage'));
 const NotFoundPage = lazy(() => import('~/pages/NotFoundPage'));
 const AccountPage = lazy(() => import('~/pages/AccountPage'));
 const JoinPage = lazy(() => import('~/pages/JoinPage'));
@@ -11,7 +11,6 @@ const BoardEditPage = lazy(() => import('~/pages/BoardEditPage'));
 const BoardDetailPage = lazy(() => import('~/pages/BoardDetailPage'));
 const TestPage = lazy(() => import('~/pages/TestPage'));
 const ChangePasswordPage = lazy(() => import('~/pages/AccountPage/ChangePasswordPage'));
-import Toast from '~/components/template/Toast';
 import LoadingPage from '~/pages/LoadingPage';
 
 const App = () => {
@@ -21,7 +20,6 @@ const App = () => {
         <Suspense fallback={<LoadingPage />}>
           <Routes>
             <Route index element={<HomePage />} />
-            <Route path="/login" element={<LoginPage />} />
             <Route path="/join" element={<JoinPage />} />
             <Route path="/account" element={<AccountPage />} />
             <Route path="/change-password" element={<ChangePasswordPage />} />

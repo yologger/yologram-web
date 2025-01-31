@@ -1,6 +1,6 @@
 import React from 'react';
-import FilledButton from '~/components/atom/button/FilledButton';
-import OutlinedButton from '~/components/atom/button/OutlinedButton';
+import FilledButton from '~/components/atoms/button/FilledButton';
+import OutlinedButton from '~/components/atoms/button/OutlinedButton';
 import iconBtnClose from '~/static/images/icon_btn_close.svg';
 import styled from '~/styles';
 

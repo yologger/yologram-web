@@ -1,6 +1,6 @@
 import styled from '~/styles';
 import BoardList from '~/components/organisms/Board/BoardList';
-import PageTitle from '~/components/atom/text/PageTitle';
+import PageTitle from '~/components/atoms/text/PageTitle';
 
 const HomePage = () => {
   return (

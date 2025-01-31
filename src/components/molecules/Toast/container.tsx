@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 
 import Toast from './Toast';
-import Fade from '../Fade';
+import Fade from '../../molecules/Fade';
 
 interface IContainerProps {
   toggle: boolean;

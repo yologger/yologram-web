@@ -1,11 +1,11 @@
 import styled, { theme } from '~/styles';
 
-import OutlinedButton from '~/components/atom/button/OutlinedButton';
-import FilledButton from '~/components/atom/button/FilledButton';
+import OutlinedButton from '~/components/atoms/button/OutlinedButton';
+import FilledButton from '~/components/atoms/button/FilledButton';
 
-import Popup from '~/components/template/Popup';
-import PageTitle from '~/components/atom/text/PageTitle';
-import FormInput from '~/components/atom/input/FormInput';
+import Popup from '~/components/molecules/Popup';
+import PageTitle from '~/components/atoms/text/PageTitle';
+import FormInput from '~/components/atoms/input/FormInput';
 
 interface IProps {
   onClose: () => void;

@@ -5,8 +5,8 @@ import { Transition } from 'react-transition-group';
 import { IDialog } from '~/types/dialog';
 import { IButton } from '~/types/button';
 import closeIcon from '~/static/icons/ic-close.svg';
-import Portal from '~/components/template/Portal';
-import styled from 'styled-components';
+import styled from '~/styles';
+import Portal from '../Portal';
 
 interface IProps {
   show: boolean;

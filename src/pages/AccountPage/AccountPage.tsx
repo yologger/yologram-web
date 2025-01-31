@@ -2,10 +2,10 @@ import styled from 'styled-components';
 import { theme } from '~/styles';
 import { ChangeEvent } from 'react';
 import BoardList from '~/components/organisms/Board/BoardList';
-import PageTitle from '~/components/atom/text/PageTitle';
-import SectionTitle from '~/components/atom/text/SectionTitle';
-import FormInput from '~/components/atom/input/FormInput';
-import FilledButton from '~/components/atom/button/FilledButton';
+import PageTitle from '~/components/atoms/text/PageTitle';
+import SectionTitle from '~/components/atoms/text/SectionTitle';
+import FormInput from '~/components/atoms/input/FormInput';
+import FilledButton from '~/components/atoms/button/FilledButton';
 
 interface IInputProps {
   value: string;

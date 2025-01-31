@@ -1,8 +1,8 @@
 import { ChangeEvent } from 'react';
-import FilledButton from '~/components/atom/button/FilledButton';
-import OutlinedButton from '~/components/atom/button/OutlinedButton';
-import FormInput from '~/components/atom/input/FormInput';
-import PageTitle from '~/components/atom/text/PageTitle';
+import FilledButton from '~/components/atoms/button/FilledButton';
+import OutlinedButton from '~/components/atoms/button/OutlinedButton';
+import FormInput from '~/components/atoms/input/FormInput';
+import PageTitle from '~/components/atoms/text/PageTitle';
 import styled from '~/styles';
 
 interface IProps {

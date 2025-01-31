@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import styled from '~/styles';
-import Header from '../../organisms/Header';
-import LoginPopup from '~/components/molecules/LoginPopup';
+import LoginPopup from '~/components/organisms/LoginPopup';
+import Header from '../Header';
 
 interface IProps {
   useLayout: boolean;
